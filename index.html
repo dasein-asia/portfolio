@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Li Chang · Architect & Creative Technologist</title>
+<meta name="description" content="复合型建筑师 Li Chang —— 一级注册建筑师 · 高级工程师。12年实战经验、20+大型项目，将 AI 与 Grasshopper 参数化深度融入建筑设计全流程。">
+<meta name="theme-color" content="#002FA7">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Li Chang · Architect & Creative Technologist">
+<meta property="og:description" content="一级注册建筑师 · 高级工程师 · 复合型建筑师">
+<meta property="og:image" content="https://portfolio.dasein.asia/素材/hero-poster.webp">
+<meta property="og:url" content="https://portfolio.dasein.asia/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+/* ---------- Self-hosted Fonts (local woff2, no external dependency) ---------- */
+@font-face { font-family: "Space Grotesk"; src: url("素材/fonts/space-grotesk-latin-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("素材/fonts/space-grotesk-latin-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("素材/fonts/space-grotesk-latin-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("素材/fonts/space-grotesk-latin-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("素材/fonts/geist-latin-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("素材/fonts/geist-latin-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("素材/fonts/geist-mono-latin-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("素材/fonts/geist-mono-latin-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+/* ============================================================
+   Hallmark · genre: modern-minimal · macrostructure: Split Studio
+   theme: custom Klein Blue · enrichment: none · nav: N5 · footer: Ft2
+   Pre-emit: P5 H5 E5 S5 R5 V5
+   ============================================================ */
+
+/* ---------- Tokens ---------- */
+:root {
+  --color-paper:      oklch(98.5% 0.004 255);
+  --color-paper-2:    oklch(96%   0.006 255);
+  --color-paper-3:    oklch(92%   0.008 255);
+  --color-rule:       oklch(86%   0.008 255);
+  --color-neutral:    oklch(58%   0.008 250);
+  --color-muted:      oklch(38%   0.006 250);
+  --color-ink:        oklch(15%   0.008 250);
+  --color-accent:     #002FA7;
+  --color-accent-l:   oklch(55%   0.22  265 / 0.12);
+  --color-accent-dim: oklch(55%   0.20  265);
+  --color-focus:      oklch(50%   0.25  265);
+  --color-orange:     #E85D2C;
+  --color-orange-l:   oklch(60%   0.18  40 / 0.10);
+  --color-cyan:       #0A8E9E;
+  --color-cyan-l:     oklch(55%   0.12  200 / 0.10);
+
+  --nav-h:        64px;
+  --font-display:  "Space Grotesk", "Noto Sans SC", system-ui, sans-serif;
+  --font-body:     "Geist", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-outlier:  "Geist Mono", "Noto Sans SC", monospace;
+
+  --text-xs:   0.6875rem;
+  --text-sm:   0.8125rem;
+  --text-base: 1rem;
+  --text-md:   1.1875rem;
+  --text-lg:   1.5rem;
+  --text-xl:   1.875rem;
+  --text-2xl:  2.375rem;
+  --text-3xl:  2.75rem;
+  --text-4xl:  clamp(2.25rem, 4vw + 1rem, 4rem);
+  --text-display: clamp(2.75rem, 5vw + 1rem, 5.5rem);
+
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 8rem;
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.4, 0, 0.68, 0.06);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --dur-fast:   150ms;
+  --dur-base:   300ms;
+  --dur-slow:   500ms;
+  --dur-reveal: 700ms;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --z-base:     1;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-modal:    400;
+  --z-toast:    500;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: clip; scroll-behavior: smooth; }
+body { overflow-x: clip; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.65; color: var(--color-ink); background: var(--color-paper); -webkit-font-smoothing: antialiased; padding-top: var(--nav-h); }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Noise Texture Overlay ---------- */
+.noise-overlay { position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+ul { list-style: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+canvas { display: block; }
+
+/* ---------- Utilities ---------- */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 var(--space-xl); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.section { padding: var(--space-3xl) 0; }
+.section-label { font-family: var(--font-outlier); font-size: var(--text-sm); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-sm); }
+.section-title { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: var(--space-lg); }
+.section-title em { font-style: italic; color: var(--color-accent); }
+
+/* ---------- Decorative Geometric Accents ---------- */
+.section-accent { position: relative; }
+.section-accent::before { content: ''; position: absolute; top: 0; right: var(--space-xl); width: 80px; height: 1px; background: var(--color-accent); opacity: 0.3; }
+.section-accent::after { content: ''; position: absolute; top: -4px; right: var(--space-xl); width: 9px; height: 9px; border: 1.5px solid var(--color-accent); opacity: 0.25; transform: rotate(45deg); }
+.accent-corner { position: absolute; bottom: var(--space-xl); left: var(--space-xl); width: 40px; height: 40px; pointer-events: none; }
+.accent-corner::before { content: ''; position: absolute; bottom: 0; left: 0; width: 20px; height: 1px; background: var(--color-accent); opacity: 0.2; }
+.accent-corner::after { content: ''; position: absolute; bottom: 0; left: 0; width: 1px; height: 20px; background: var(--color-accent); opacity: 0.2; }
+
+/* hero parallax */
+.hero__parallax { will-change: transform; }
+
+/* fade-up reveal */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- Nav · Top Fixed Frosted ---------- */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-sticky); height: var(--nav-h); display: flex; align-items: center; padding: 0 var(--space-xl); background: rgba(255,255,255,0.88); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid var(--color-rule); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; }
+.nav__wordmark { font-family: var(--font-display); font-size: var(--text-md); font-weight: 700; letter-spacing: -0.02em; color: var(--color-ink); }
+.nav__wordmark span { color: var(--color-accent); }
+.nav__links { display: flex; align-items: center; gap: var(--space-lg); }
+.nav__links a { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); transition: color var(--dur-fast) var(--ease-out); position: relative; }
+.nav__links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--color-accent); transition: width var(--dur-base) var(--ease-out); }
+.nav__links a:hover { color: var(--color-ink); }
+.nav__links a:hover::after { width: 100%; }
+.nav__cta { padding: var(--space-xs) var(--space-lg); border-radius: 100px; background: var(--color-accent); color: #fff; font-size: var(--text-sm); font-weight: 500; transition: opacity var(--dur-fast) var(--ease-out); }
+.nav__cta:hover { opacity: 0.88; }
+.nav__menu-btn { display: none; flex-direction: column; gap: 4px; padding: var(--space-xs); cursor: pointer; }
+.nav__menu-btn span { display: block; width: 20px; height: 2px; background: var(--color-ink); border-radius: 1px; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; height: 100vh; min-height: 600px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--color-paper-2); }
+.hero__media { position: absolute; inset: 0; }
+.hero__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity var(--dur-slow) var(--ease-out); }
+.hero__poster--fade { opacity: 0; }
+.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity var(--dur-slow) var(--ease-out); }
+.hero__video--show { opacity: 1; }
+.hero__overlay { position: absolute; inset: 0; background: linear-gradient(135deg, oklch(15% 0.01 250 / 0.55), oklch(15% 0.01 250 / 0.25)); }
+.hero__content { position: relative; z-index: var(--z-raised); text-align: center; color: #fff; padding: 0 var(--space-xl); }
+.hero__name { font-family: var(--font-display); font-size: var(--text-display); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: var(--space-sm); }
+.hero__name em { font-style: italic; color: oklch(70% 0.15 265); }
+.hero__title { font-size: var(--text-base); font-weight: 400; color: #fff; margin-bottom: var(--space-xl); letter-spacing: 0.04em; }
+.hero__stats { display: flex; gap: var(--space-xl); justify-content: center; flex-wrap: wrap; }
+.hero__stat { display: flex; align-items: baseline; gap: var(--space-2xs); color: #fff; }
+.hero__stat-num { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: oklch(70% 0.15 265); line-height: 1; }
+.hero__stat-unit { font-size: var(--text-sm); color: #fff; }
+.hero__stat-label { font-size: var(--text-xs); color: #fff; font-family: var(--font-outlier); letter-spacing: 0.04em; margin-left: var(--space-2xs); }
+.hero__scroll { position: absolute; bottom: var(--space-xl); left: 50%; transform: translateX(-50%); z-index: var(--z-raised); display: flex; flex-direction: column; align-items: center; gap: var(--space-xs); color: #fff; font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--font-outlier); }
+.hero__scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent); animation: scrollPulse 2s var(--ease-in-out) infinite; }
+@keyframes scrollPulse { 0%, 100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.3; transform: scaleY(0.6); } }
+
+/* ---------- About ---------- */
+.about { background: var(--color-paper); }
+.about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; }
+.about__image { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--color-paper-3); aspect-ratio: 3/4; }
+.about__image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.6); transition: filter var(--dur-slow) var(--ease-out); }
+.about__image:hover img { filter: saturate(1); }
+.about__image::after { content: ''; position: absolute; inset: 0; border: 1px solid var(--color-rule); border-radius: var(--radius-lg); pointer-events: none; }
+.about__content { }
+.about__content .section-title { margin-bottom: var(--space-lg); }
+.about__bio { font-size: var(--text-md); line-height: 1.7; color: var(--color-muted); margin-bottom: var(--space-xl); }
+.about__quote { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; line-height: 1.5; color: var(--color-ink); margin-bottom: var(--space-lg); padding: var(--space-lg) var(--space-xl); border-left: 3px solid var(--color-orange); background: var(--color-paper-2); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+
+/* ---------- Credentials (redesigned badges) ---------- */
+.credentials { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.credential { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); background: var(--color-paper-2); border: 1px solid var(--color-rule); transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); min-width: 180px; }
+.credential:hover { transform: translateY(-3px); border-color: var(--color-accent); box-shadow: 0 6px 20px var(--color-accent-l); }
+.credential__icon { flex-shrink: 0; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--color-accent-l); color: var(--color-accent); font-family: var(--font-outlier); font-size: var(--text-sm); font-weight: 600; border: 1px solid oklch(55% 0.22 265 / 0.2); }
+.credential__info { }
+.credential__title { font-size: var(--text-sm); font-weight: 600; line-height: 1.3; margin-bottom: var(--space-3xs); }
+.credential__sub { font-size: var(--text-xs); color: var(--color-neutral); font-family: var(--font-outlier); letter-spacing: 0.02em; }
+
+/* ---------- Timeline ---------- */
+.timeline { background: var(--color-paper-2); }
+
+/* ---------- Timeline Paired Layout ---------- */
+.timeline__pairs { position: relative; padding-left: var(--space-2xl); }
+.timeline__pairs::before { content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 1.5px; background: linear-gradient(to bottom, var(--color-rule), var(--color-accent), oklch(86% 0.008 255)); background-size: 100% 200%; animation: timelineFlow 4s ease-in-out infinite alternate; }
+@keyframes timelineFlow { 0% { background-position: 0% 0%; } 100% { background-position: 0% 100%; } }
+.timeline__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); margin-bottom: var(--space-2xl); position: relative; opacity: 0; transform: translateX(-16px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.timeline__pair:last-child { margin-bottom: 0; }
+.timeline__pair.is-visible { opacity: 1; transform: translateX(0); }
+.timeline__pair-content { position: relative; padding-bottom: var(--space-xs); }
+.timeline__pair .timeline__dot { position: absolute; left: calc(-1 * var(--space-2xl) + 0px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-paper); border: 2px solid var(--color-accent); transform: translateX(-50%); transition: box-shadow var(--dur-base) var(--ease-out); }
+.timeline__pair.is-visible .timeline__dot { box-shadow: 0 0 0 6px var(--color-accent-l); }
+.timeline__pair .timeline__year { font-family: var(--font-outlier); font-size: var(--text-sm); color: var(--color-accent); margin-bottom: var(--space-2xs); letter-spacing: 0.04em; }
+.timeline__pair .timeline__role { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; letter-spacing: -0.01em; margin-bottom: var(--space-xs); }
+.timeline__pair .timeline__company { font-size: var(--text-base); color: var(--color-muted); }
+.timeline__pair .timeline__desc { font-size: var(--text-sm); color: var(--color-neutral); margin-top: var(--space-xs); max-width: 55ch; }
+.timeline__pair-img { position: relative; border-radius: var(--radius-md); overflow: hidden; background: var(--color-paper-3); border: 1px solid var(--color-rule); cursor: default; aspect-ratio: 16/11; transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
+.timeline__pair-img:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--color-accent-l); border-color: var(--color-accent); }
+.timeline__pair-img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-out); }
+.timeline__pair-img:hover img { transform: scale(1.05); }
+.timeline__pair-img .timeline__img-label { position: absolute; bottom: var(--space-sm); left: var(--space-sm); font-family: var(--font-outlier); font-size: var(--text-xs); color: #fff; background: oklch(15% 0.008 250 / 0.65); padding: 2px var(--space-sm); border-radius: var(--radius-sm); backdrop-filter: blur(4px); letter-spacing: 0.04em; }
+
+@media (max-width: 60rem) {
+  .timeline__pair { gap: var(--space-lg); }
+  .timeline__pair-img { aspect-ratio: 16/10; }
+}
+@media (max-width: 40rem) {
+  .timeline__pairs { padding-left: var(--space-xl); }
+  .timeline__pair .timeline__dot { left: calc(-1 * var(--space-xl) + 0px); }
+}
+
+/* ---------- Skills ---------- */
+.skills { background: var(--color-paper); }
+.skills__groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); margin-bottom: var(--space-2xl); align-items: start; }
+.skill-group { background: var(--color-paper-2); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--color-rule); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.skill-group:hover { transform: translateY(-3px); box-shadow: 0 8px 24px oklch(12% 0.008 250 / 0.06); }
+.skill-group__title { font-family: var(--font-display); font-size: var(--text-md); font-weight: 600; margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-sm); letter-spacing: -0.01em; }
+.skill-group__icon { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: var(--text-xs); flex-shrink: 0; font-weight: 600; }
+.skill-item { margin-bottom: var(--space-md); }
+.skill-item:last-child { margin-bottom: 0; }
+.skill-item__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2xs); white-space: nowrap; gap: var(--space-sm); }
+.skill-item__name { font-size: 1.05rem; font-weight: 500; display: flex; align-items: center; gap: var(--space-2xs); min-width: 0; }
+.skill-item__name .ti { width: 20px; height: 20px; border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.skill-item__name .ti img { width: 100%; height: 100%; object-fit: contain; }
+.skill-item__pct { font-family: var(--font-outlier); font-size: 0.9rem; color: var(--color-neutral); flex-shrink: 0; }
+.skill-bar { height: 5px; border-radius: 5px; background: var(--color-paper-3); overflow: hidden; }
+.skill-desc { font-size: var(--text-xs); color: var(--color-neutral); font-weight: 400; opacity: 0; max-height: 0; overflow: hidden; transition: opacity var(--dur-base) var(--ease-out), max-height var(--dur-base) var(--ease-out), margin var(--dur-base) var(--ease-out); }
+.skill-item:hover .skill-desc { opacity: 1; max-height: 3em; margin-top: var(--space-2xs); }
+.skill-bar__fill { height: 100%; border-radius: 4px; background: var(--color-accent); width: 0; transition: width 1.2s var(--ease-out); }
+/* On touch devices (no hover), always show skill descriptions */
+@media (hover: none) {
+  .skill-desc { opacity: 1; max-height: none; margin-top: var(--space-2xs); }
+}
+.skill-bar__fill--animated { }
+.skill-bar__fill--orange { background: var(--color-orange); }
+.skill-bar__fill--cyan { background: var(--color-cyan); }
+
+/* Demo videos — full width row */
+.skills__demos { }
+.skills__demos-label { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-md); letter-spacing: -0.01em; }
+.skills__demos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+.skills__video { border-radius: var(--radius-md); overflow: hidden; background: var(--color-paper-3); position: relative; cursor: pointer; border: 1px solid var(--color-rule); transition: border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.skills__video:hover { border-color: var(--color-accent); transform: translateY(-3px); box-shadow: 0 8px 24px var(--color-accent-l); }
+.skills__video video { width: 100%; display: block; }
+.skills__video-label { position: absolute; bottom: var(--space-sm); left: var(--space-sm); font-size: var(--text-xs); color: #fff; background: oklch(15% 0.008 250 / 0.7); padding: 4px var(--space-sm); border-radius: var(--radius-sm); font-family: var(--font-outlier); backdrop-filter: blur(4px); }
+.skills__video-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #fff; opacity: 0.7; transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); text-shadow: 0 2px 12px oklch(0% 0 0 / 0.3); }
+.skills__video:hover .skills__video-play { opacity: 1; transform: scale(1.1); }
+
+/* ---------- Portfolio ---------- */
+.portfolio { background: var(--color-paper-2); }
+.portfolio__header { margin-bottom: var(--space-xl); }
+.portfolio__filters { display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-top: var(--space-md); }
+.portfolio__filter { padding: var(--space-2xs) var(--space-md); border-radius: 100px; font-size: var(--text-sm); font-weight: 500; color: var(--color-neutral); border: 1px solid transparent; transition: all var(--dur-base) var(--ease-out); }
+.portfolio__filter:hover { color: var(--color-ink); border-color: var(--color-rule); }
+.portfolio__filter--active { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+.gallery { columns: 3; column-gap: var(--space-lg); padding: 0; }
+.gallery__card { break-inside: avoid; margin-bottom: var(--space-lg); border-radius: var(--radius-lg); overflow: hidden; background: var(--color-paper); border: 1px solid var(--color-rule); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); cursor: pointer; position: relative; }
+.gallery__card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px oklch(15% 0.008 250 / 0.1); }
+.gallery__card-img { overflow: hidden; background: var(--color-paper-3); position: relative; }
+.gallery__card-img img { width: 100%; height: auto; display: block; transition: transform var(--dur-slow) var(--ease-out); }
+.gallery__card:hover .gallery__card-img img { transform: scale(1.05); }
+.gallery__card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, oklch(12% 0.008 250 / 0.7), transparent 50%); opacity: 0; transition: opacity var(--dur-base) var(--ease-out); display: flex; flex-direction: column; justify-content: flex-end; padding: var(--space-lg); }
+.gallery__card:hover .gallery__card-overlay { opacity: 1; }
+.gallery__card-overlay .gallery__card-cat { font-family: var(--font-outlier); font-size: var(--text-xs); color: oklch(70% 0.15 265); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-2xs); }
+.gallery__card-overlay .gallery__card-title { font-family: var(--font-display); font-size: var(--text-md); font-weight: 600; color: #fff; letter-spacing: -0.01em; }
+.gallery__card-body { padding: var(--space-md) var(--space-lg) var(--space-lg); }
+.gallery__card-body .gallery__card-cat { font-family: var(--font-outlier); font-size: var(--text-xs); color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-2xs); }
+.gallery__card-body .gallery__card-title { font-family: var(--font-display); font-size: var(--text-md); font-weight: 600; letter-spacing: -0.01em; margin-bottom: var(--space-2xs); }
+.gallery__card-desc { font-size: var(--text-sm); color: var(--color-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ---------- Drawer ---------- */
+.drawer-overlay { position: fixed; inset: 0; z-index: var(--z-modal); background: oklch(15% 0.008 250 / 0.4); opacity: 0; pointer-events: none; transition: opacity var(--dur-base) var(--ease-out); }
+.drawer-overlay--open { opacity: 1; pointer-events: auto; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: 600px; max-width: 90vw; z-index: calc(var(--z-modal) + 1); background: var(--color-paper); transform: translateX(100%); transition: transform var(--dur-slow) var(--ease-out); overflow-y: auto; box-shadow: -8px 0 40px oklch(15% 0.008 250 / 0.1); }
+.drawer--open { transform: translateX(0); }
+.drawer__header { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: var(--space-lg) var(--space-xl); background: var(--color-paper); border-bottom: 1px solid var(--color-rule); }
+.drawer__close { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background var(--dur-fast) var(--ease-out); font-size: var(--text-lg); color: var(--color-neutral); }
+.drawer__close:hover { background: var(--color-paper-3); color: var(--color-ink); }
+.drawer__nav { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background var(--dur-fast) var(--ease-out); font-size: var(--text-lg); color: var(--color-neutral); cursor: pointer; background: none; border: none; }
+.drawer__nav:hover { background: var(--color-paper-3); color: var(--color-ink); }
+.drawer__nav:disabled { opacity: 0.3; cursor: default; }
+.drawer__body { padding: var(--space-xl); }
+.drawer__cat { font-family: var(--font-outlier); font-size: var(--text-xs); color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-sm); }
+.drawer__title { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: var(--space-md); }
+.drawer__meta { display: flex; gap: var(--space-lg); margin-bottom: var(--space-xl); font-size: var(--text-sm); color: var(--color-neutral); flex-wrap: wrap; }
+.drawer__meta-item { display: flex; align-items: center; gap: var(--space-2xs); }
+.drawer__meta-item dt { font-family: var(--font-outlier); font-size: var(--text-xs); color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-right: var(--space-2xs); }
+.drawer__desc { font-size: var(--text-base); line-height: 1.7; color: var(--color-muted); margin-bottom: var(--space-xl); }
+.drawer__gallery { display: grid; gap: var(--space-md); }
+.drawer__gallery img { border-radius: var(--radius-md); border: 1px solid var(--color-rule); width: 100%; }
+
+/* ---------- Awards ---------- */
+.awards { background: var(--color-paper); }
+.awards__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-md); }
+.award-card { display: flex; align-items: flex-start; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: var(--color-paper-2); border: 1px solid var(--color-rule); transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
+.award-card:hover { transform: translateY(-2px); border-color: var(--color-accent); }
+.award-card__icon { flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--color-accent-l); color: var(--color-accent); font-family: var(--font-outlier); font-size: var(--text-sm); font-weight: 600; }
+.award-card__year { font-family: var(--font-outlier); font-size: var(--text-xs); color: var(--color-accent); letter-spacing: 0.04em; margin-bottom: var(--space-2xs); }
+.award-card__title { font-size: var(--text-base); font-weight: 500; margin-bottom: var(--space-2xs); line-height: 1.4; }
+.award-card__detail { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* ---------- Footer · Ft5 Statement ---------- */
+.footer { background: var(--color-ink); color: oklch(90% 0.004 250); padding: var(--space-3xl) 0 var(--space-xl); position: relative; overflow: hidden; }
+.footer::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, oklch(65% 0.15 265)); opacity: 0.4; }
+.footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-lg); }
+.footer__wordmark { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; letter-spacing: -0.02em; }
+.footer__wordmark span { color: oklch(65% 0.15 265); }
+.footer__tagline { font-size: var(--text-sm); color: oklch(58% 0.008 250); max-width: 480px; line-height: 1.6; }
+.footer__social { display: flex; gap: var(--space-md); justify-content: center; }
+.footer__social a, .footer__social-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid oklch(35% 0.006 250); color: oklch(75% 0.004 250); font-size: var(--text-sm); font-weight: 500; transition: all var(--dur-fast) var(--ease-out); font-family: var(--font-outlier); background: none; cursor: pointer; }
+.footer__social a:hover, .footer__social-btn:hover { border-color: oklch(65% 0.15 265); color: #fff; background: oklch(65% 0.15 265 / 0.1); }
+.footer__info { display: flex; gap: var(--space-xl); flex-wrap: wrap; justify-content: center; font-size: var(--text-sm); color: oklch(58% 0.008 250); }
+.footer__info a { color: oklch(58% 0.008 250); transition: color var(--dur-fast) var(--ease-out); }
+.footer__info a:hover { color: #fff; }
+.footer__info-item { display: flex; align-items: center; gap: var(--space-xs); }
+.footer__copy { font-size: var(--text-xs); color: oklch(45% 0.004 250); padding-top: var(--space-lg); border-top: 1px solid oklch(30% 0.006 250); width: 100%; max-width: 480px; }
+
+/* ---------- Awards: certificate scans gallery ---------- */
+.awards__sub-title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; margin: var(--space-2xl) 0 var(--space-lg); letter-spacing: -0.01em; }
+.awards__sub-title em { font-style: italic; color: var(--color-accent); }
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-md); }
+.cert-item { position: relative; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-rule); background: var(--color-paper-2); cursor: zoom-in; aspect-ratio: 3/4; transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.cert-item:hover { transform: translateY(-3px); border-color: var(--color-accent); box-shadow: 0 8px 24px var(--color-accent-l); }
+.cert-item img { width: 100%; height: 100%; object-fit: cover; }
+.cert-item__label { position: absolute; left: 0; right: 0; bottom: 0; padding: var(--space-md); font-size: var(--text-xs); color: #fff; background: linear-gradient(to top, oklch(15% 0.008 250 / 0.75), transparent); font-family: var(--font-outlier); letter-spacing: 0.03em; }
+
+/* ---------- Lightbox ---------- */
+.lightbox { position: fixed; inset: 0; z-index: calc(var(--z-modal) + 2); display: none; align-items: center; justify-content: center; background: oklch(12% 0.008 250 / 0.9); padding: var(--space-xl); }
+.lightbox--open { display: flex; }
+.lightbox img { max-width: 100%; max-height: 90vh; border-radius: var(--radius-md); box-shadow: 0 24px 80px oklch(0% 0 0 / 0.5); }
+.lightbox__close { position: absolute; top: var(--space-lg); right: var(--space-lg); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: oklch(25% 0.006 250 / 0.8); color: #fff; font-size: var(--text-lg); transition: background var(--dur-fast) var(--ease-out); }
+.lightbox__close:hover { background: var(--color-accent); }
+.lightbox__caption { position: absolute; bottom: var(--space-lg); left: 50%; transform: translateX(-50%); color: oklch(80% 0.004 250); font-size: var(--text-sm); font-family: var(--font-outlier); letter-spacing: 0.04em; text-align: center; }
+
+/* ---------- QR modal ---------- */
+.qr-overlay { position: fixed; inset: 0; z-index: var(--z-modal); background: oklch(15% 0.008 250 / 0.5); display: none; align-items: center; justify-content: center; padding: var(--space-lg); }
+.qr-overlay--open { display: flex; }
+.qr-modal { background: var(--color-paper); border-radius: var(--radius-lg); padding: var(--space-xl); text-align: center; max-width: 320px; width: 100%; box-shadow: 0 24px 80px oklch(0% 0 0 / 0.25); }
+.qr-modal img { width: 220px; height: 220px; margin: 0 auto var(--space-md); border-radius: var(--radius-md); }
+.qr-modal__title { font-family: var(--font-display); font-weight: 600; margin-bottom: var(--space-xs); }
+.qr-modal__sub { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 60rem) {
+  .nav__links { gap: var(--space-md); }
+  .nav__links a { font-size: var(--text-xs); }
+  .about__grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .about__image { max-width: 400px; }
+  .skills__groups { grid-template-columns: 1fr 1fr; }
+  .tool-grid { grid-template-columns: repeat(3, 1fr); }
+  .skills__demos-grid { grid-template-columns: 1fr; }
+  .gallery { columns: 2; }
+  .awards__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 40rem) {
+  .nav__links { display: none; }
+  .nav__links--open { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: var(--space-md); background: rgba(255,255,255,0.98); backdrop-filter: blur(12px) saturate(1.4); -webkit-backdrop-filter: blur(12px) saturate(1.4); padding: var(--space-lg) var(--space-xl); border-bottom: 1px solid var(--color-rule); box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: var(--z-dropdown); }
+  .nav__menu-btn { display: flex; }
+  .hero__name { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+  .hero__title { font-size: var(--text-base); }
+  .section { padding: var(--space-2xl) 0; }
+  .section-title { font-size: var(--text-xl); }
+  .skills__groups { grid-template-columns: 1fr; }
+  .tool-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
+  .tool-card { padding: var(--space-sm); }
+  .gallery { columns: 1; }
+  .timeline__pair { grid-template-columns: 1fr; }
+  .drawer { width: 100vw; max-width: 100vw; }
+  .credentials { flex-direction: column; }
+  .credential { min-width: unset; }
+}
+</style>
+</head>
+<body>
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="#hero" class="nav__wordmark">Li <span>Chang</span></a>
+    <div class="nav__links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#skills">Skills</a>
+      <a href="#portfolio">Work</a>
+      <a href="#footer" class="nav__cta">Contact</a>
+    </div>
+    <button class="nav__menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero__media hero__parallax">
+    <img class="hero__poster" id="heroPoster" src="素材/hero-poster.webp" alt="" aria-hidden="true" />
+    <video class="hero__video" id="heroVideo" muted playsinline preload="metadata" loop src="素材/hero-bg.mp4"></video>
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <h1 class="hero__name">Li <em>Chang</em></h1>
+    <p class="hero__title">一级注册建筑师 · 高级工程师 · 复合型建筑师</p>
+    <div class="hero__stats">
+      <div class="hero__stat"><span class="hero__stat-num">12</span><span class="hero__stat-unit">年</span><span class="hero__stat-label">经验</span></div>
+      <div class="hero__stat"><span class="hero__stat-num">20+</span><span class="hero__stat-label">大型项目</span></div>
+      <div class="hero__stat"><span class="hero__stat-num">3</span><span class="hero__stat-unit">项</span><span class="hero__stat-label">专利</span></div>
+    </div>
+    <div style="margin-top:var(--space-xl);display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+      <a href="素材/个人信息/简历.pdf" class="btn-download" download target="_blank" style="display:inline-flex;align-items:center;gap:var(--space-sm);padding:var(--space-sm) var(--space-xl);border-radius:100px;background:var(--color-accent);color:#fff;font-size:var(--text-sm);font-weight:500;transition:opacity var(--dur-fast) var(--ease-out);">↓ 下载PDF简历</a>
+      <a href="#about" style="display:inline-flex;align-items:center;gap:var(--space-sm);padding:var(--space-sm) var(--space-xl);border-radius:100px;border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:var(--text-sm);font-weight:500;transition:border-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out);">了解更多 →</a>
+    </div>
+  </div>
+  <div class="hero__scroll">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about section section-accent" id="about">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__image reveal">
+        <img src="素材/个人信息/个人形象照片.webp" alt="Li Chang portrait" loading="lazy" />
+      </div>
+      <div class="about__content reveal">
+        <p class="section-label">About</p>
+        <h2 class="section-title">复合型建筑师，<br><em>技术与美学的</em>交汇点</h2>
+        <blockquote class="about__quote">
+          从一纸蓝图到参数化算法，从砖石构建到AI驱动——建筑的语言在变，但对空间与品质的追求从未改变。
+        </blockquote>
+        <p class="about__bio">
+          资深建筑方案专家，持有一级注册建筑师与高级工程师职称。拥有12年实战经验，成功交付20余项大型项目全周期管理，涵盖住宅、教育、商业综合体及产业园区等多种业态。<br><br>
+          始终保持对新技术的敏锐嗅觉，积极拥抱AI与代码，将DeepSeek、Claude Code及Grasshopper参数化工具深度融入设计工作流。致力于通过持续学习打破行业边界，用科技手段丰富设计工具库，为每一个项目注入未来的可能性。
+        </p>
+        <div class="credentials">
+          <div class="credential reveal">
+            <div class="credential__icon">注</div>
+            <div class="credential__info">
+              <div class="credential__title">一级注册建筑师</div>
+              <div class="credential__sub">国家级执业资格</div>
+            </div>
+          </div>
+          <div class="credential reveal">
+            <div class="credential__icon">高</div>
+            <div class="credential__info">
+              <div class="credential__title">高级工程师</div>
+              <div class="credential__sub">省级职称认定</div>
+            </div>
+          </div>
+          <div class="credential reveal">
+            <div class="credential__icon">B</div>
+            <div class="credential__info">
+              <div class="credential__title">BIM 技能等级证书</div>
+              <div class="credential__sub">全国一级</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline section section-accent" id="timeline">
+  <div class="container">
+    <p class="section-label">Career</p>
+    <h2 class="section-title">专业<em>历程</em></h2>
+    <div class="timeline__pairs">
+      <div class="timeline__pair reveal">
+        <div class="timeline__pair-content">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2025 — 2026</div>
+          <div class="timeline__role">建筑方案项目经理</div>
+          <div class="timeline__company">建筑工作室</div>
+          <div class="timeline__desc">主导多个前期方案项目，探索AI辅助设计与传统建筑流程的深度融合。</div>
+        </div>
+        <div class="timeline__pair-img">
+          <img src="素材/历程图片/Portfolio 2026 2.webp" alt="2025-2026 项目" loading="lazy" />
+          <span class="timeline__img-label">2025 → 2026</span>
+        </div>
+      </div>
+      <div class="timeline__pair reveal">
+        <div class="timeline__pair-content">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2024 — 2025</div>
+          <div class="timeline__role">建筑方案顾问</div>
+          <div class="timeline__company">安徽宝翔建筑工程有限公司</div>
+          <div class="timeline__desc">提供建筑方案技术咨询与设计优化服务，参与大型住宅及商业项目方案评审。</div>
+        </div>
+        <div class="timeline__pair-img">
+          <img src="素材/历程图片/Portfolio 2026 3.webp" alt="2024-2025 项目" loading="lazy" />
+          <span class="timeline__img-label">2024 → 2025</span>
+        </div>
+      </div>
+      <div class="timeline__pair reveal">
+        <div class="timeline__pair-content">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2023 — 2024</div>
+          <div class="timeline__role">建筑方案总监</div>
+          <div class="timeline__company">深圳中海世纪建筑设计有限公司</div>
+          <div class="timeline__desc">担任方案总监，负责团队管理及重点项目形象主创。推动参数化设计在工作流中的应用。</div>
+        </div>
+        <div class="timeline__pair-img">
+          <img src="素材/历程图片/Portfolio 2026 4.webp" alt="2023-2024 项目" loading="lazy" />
+          <span class="timeline__img-label">2023 → 2024</span>
+        </div>
+      </div>
+      <div class="timeline__pair reveal">
+        <div class="timeline__pair-content">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2011 — 2023</div>
+          <div class="timeline__role">建筑设计负责</div>
+          <div class="timeline__company">青岛北洋建筑设计有限公司</div>
+          <div class="timeline__desc">从建筑设计师成长为项目负责人，深耕住宅、教育及商业综合体领域，积累了丰富的全周期设计管理经验。</div>
+        </div>
+        <div class="timeline__pair-img">
+          <img src="素材/历程图片/多层南.webp" alt="2011-2023 项目" loading="lazy" />
+          <span class="timeline__img-label">2011 → 2023</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="skills section" id="skills">
+  <div class="container">
+    <p class="section-label">Expertise</p>
+    <h2 class="section-title">技能<em>栈</em></h2>
+
+    <div class="skills__groups">
+      <div class="skill-group reveal">
+        <h3 class="skill-group__title"><span class="skill-group__icon" style="background:var(--color-accent-l);color:var(--color-accent);">◈</span> 设计领域</h3>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti"><img src="素材/技能栈/软件图标/rhino.jpg" alt="" loading="lazy" /></span> 建筑方案设计</span>
+            <span class="skill-item__pct">95%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill" data-width="95"></div></div>
+          <div class="skill-desc">住宅·教育·商业综合体全类型方案经验</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti"><img src="素材/技能栈/软件图标/sketch up.jpg" alt="" loading="lazy" /></span> SketchUp 方案推敲</span>
+            <span class="skill-item__pct">90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill skill-bar__fill--orange" data-width="90"></div></div>
+          <div class="skill-desc">快速方案推敲与空间表达</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti"><img src="素材/技能栈/软件图标/lumion.jpg" alt="" loading="lazy" /></span> Lumion 可视化</span>
+            <span class="skill-item__pct">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill skill-bar__fill--orange" data-width="88"></div></div>
+          <div class="skill-desc">高品质建筑可视化与渲染表现</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti" style="background:var(--color-paper-3);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:var(--color-neutral);">C</span> CAD+天正</span>
+            <span class="skill-item__pct">92%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill" data-width="92"></div></div>
+          <div class="skill-desc">施工图设计与专业协同</div>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3 class="skill-group__title"><span class="skill-group__icon" style="background:var(--color-cyan-l);color:var(--color-cyan);">⚙</span> 数字技术</h3>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti"><img src="素材/技能栈/软件图标/grasshopper.webp" alt="" loading="lazy" /></span> Grasshopper 参数化</span>
+            <span class="skill-item__pct">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill skill-bar__fill--cyan" data-width="88"></div></div>
+          <div class="skill-desc">参数化建模与算法生成设计</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti"><img src="素材/技能栈/软件图标/revit.jpg" alt="" loading="lazy" /></span> Revit BIM</span>
+            <span class="skill-item__pct">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill skill-bar__fill--cyan" data-width="85"></div></div>
+          <div class="skill-desc">建筑信息模型全流程应用</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti"><img src="素材/技能栈/软件图标/rhino.jpg" alt="" loading="lazy" /></span> Rhino 建模</span>
+            <span class="skill-item__pct">90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill skill-bar__fill--cyan" data-width="90"></div></div>
+          <div class="skill-desc">复杂曲面与造型建模</div>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3 class="skill-group__title"><span class="skill-group__icon" style="background:var(--color-orange-l);color:var(--color-orange);">⌨</span> AI与编程</h3>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti"><img src="素材/技能栈/软件图标/python.png" alt="" loading="lazy" /></span> Python 脚本</span>
+            <span class="skill-item__pct">82%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill" data-width="82"></div></div>
+          <div class="skill-desc">设计自动化与工具开发</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti"><img src="素材/技能栈/软件图标/claude code.jpg" alt="" loading="lazy" /></span> Claude Code AI</span>
+            <span class="skill-item__pct">80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill skill-bar__fill--orange" data-width="80"></div></div>
+          <div class="skill-desc">AI辅助编程与设计效率提升</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__head">
+            <span class="skill-item__name"><span class="ti" style="background:var(--color-orange-l);color:var(--color-orange);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;">AI</span> AI辅助设计</span>
+            <span class="skill-item__pct">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar__fill" data-width="85"></div></div>
+          <div class="skill-desc">AI驱动的智能设计工作流</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo videos full width -->
+    <div class="skills__demos reveal">
+      <p class="skills__demos-label">范例展示——RHINO + Grasshopper + Lumion</p>
+      <div class="skills__demos-grid">
+        <div class="skills__video">
+          <video muted playsinline preload="none" loop poster="素材/技能栈/grasshopper 技能演示/grasshopper-demo-poster.jpg" src="素材/技能栈/grasshopper 技能演示/grasshopper-demo.mp4"></video>
+          <div class="skills__video-play">▶ 点击播放</div>
+          <span class="skills__video-label">Grasshopper 参数化</span>
+        </div>
+        <div class="skills__video">
+          <video muted playsinline preload="none" loop poster="素材/技能栈/Lumion 技能展示软件视频/lumion-demo-poster.jpg" src="素材/技能栈/Lumion 技能展示软件视频/lumion-demo.mp4"></video>
+          <div class="skills__video-play">▶ 点击播放</div>
+          <span class="skills__video-label">Lumion 渲染可视化</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section class="portfolio section" id="portfolio">
+  <div class="container">
+    <div class="portfolio__header">
+      <div>
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title" style="margin-bottom:0;">精选<em>作品</em></h2>
+      </div>
+      <div class="portfolio__filters" role="tablist" aria-label="Filter projects">
+        <button class="portfolio__filter portfolio__filter--active" data-filter="all" role="tab" aria-selected="true">全部</button>
+        <button class="portfolio__filter" data-filter="住宅" role="tab">住宅项目</button>
+        <button class="portfolio__filter" data-filter="商业公建" role="tab">商业公建</button>
+        <button class="portfolio__filter" data-filter="产业园区" role="tab">产业园区</button>
+        <button class="portfolio__filter" data-filter="课题研发" role="tab">课题研发</button>
+        <button class="portfolio__filter" data-filter="教育建筑" role="tab">教育建筑</button>
+      </div>
+    </div>
+    <div class="gallery" id="gallery" role="list">
+    <!-- Projects injected by JS -->
+  </div>
+</section>
+
+<!-- Awards -->
+<section class="awards section" id="awards">
+  <div class="container">
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">荣誉<em>奖项</em></h2>
+    <div class="awards__grid" id="awardsGrid">
+      <!-- Awards injected by JS -->
+    </div>
+    <h3 class="awards__sub-title">证书<em>扫描</em></h3>
+    <div class="cert-grid" id="certGrid">
+      <!-- Certificates injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="证书大图">
+  <button class="lightbox__close" id="lightboxClose" aria-label="关闭">✕</button>
+  <img id="lightboxImg" src="" alt="" />
+  <div class="lightbox__caption" id="lightboxCaption"></div>
+</div>
+
+<!-- QR Modal -->
+<div class="qr-overlay" id="qrOverlay">
+  <div class="qr-modal" role="dialog" aria-modal="true" aria-label="微信二维码">
+    <img src="素材/个人信息/微信二维码.png" alt="微信二维码" />
+    <div class="qr-modal__title">微信扫码联系</div>
+    <div class="qr-modal__sub">微信号：15964202241</div>
+    <button class="qr-modal__close" id="qrClose" style="margin-top:var(--space-md);padding:var(--space-xs) var(--space-xl);border-radius:100px;border:1px solid var(--color-rule);font-size:var(--text-sm);color:var(--color-muted);">关闭</button>
+  </div>
+</div>
+
+<!-- Drawer -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Project details">
+  <div class="drawer__header">
+    <span class="drawer__cat" id="drawerCat"></span>
+    <div style="display:flex;gap:var(--space-xs);align-items:center;">
+      <button class="drawer__nav" id="drawerPrev" aria-label="Previous project">←</button>
+      <button class="drawer__nav" id="drawerNext" aria-label="Next project">→</button>
+      <button class="drawer__close" id="drawerClose" aria-label="Close drawer">✕</button>
+    </div>
+  </div>
+  <div class="drawer__body" id="drawerBody"></div>
+</aside>
+
+<!-- Footer · Ft5 Statement -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__wordmark">Li <span>Chang</span></div>
+      <p class="footer__tagline">一级注册建筑师 · 高级工程师 · 用代码思维重构建筑，用建筑语言诠释技术</p>
+      <div class="footer__social">
+        <a href="mailto:676323812@qq.com" aria-label="Email">@</a>
+        <button id="qrOpen" class="footer__social-btn" aria-label="微信二维码" title="微信: 15964202241">微</button>
+      </div>
+      <div class="footer__info">
+        <span class="footer__info-item">15964202241</span>
+        <a href="mailto:676323812@qq.com" class="footer__info-item">676323812@qq.com</a>
+        <span class="footer__info-item">微信: 15964202241</span>
+      </div>
+      <p class="footer__copy">© 2026 Li Chang · 一级注册建筑师 · 高级工程师</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Hero: poster → video ---------- */
+(function() {
+  const poster = document.getElementById('heroPoster');
+  const video = document.getElementById('heroVideo');
+  const conn = navigator.connection;
+  const slowNet = conn && (conn.saveData || ['slow-2g', '2g'].includes(conn.effectiveType));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Gate autoplay: keep the poster on slow networks or when reduced motion is preferred
+  if (!slowNet && !reduceMotion) {
+    setTimeout(() => {
+      poster.classList.add('hero__poster--fade');
+      video.classList.add('hero__video--show');
+      video.play().catch(() => {});
+    }, 2000);
+  }
+  video.addEventListener('error', () => {
+    poster.classList.remove('hero__poster--fade');
+    video.classList.remove('hero__video--show');
+  });
+})();
+
+/* ---------- Skill videos: click to play (lazy, preload="none") ---------- */
+document.querySelectorAll('.skills__video').forEach(el => {
+  const vid = el.querySelector('video');
+  const playBtn = el.querySelector('.skills__video-play');
+  el.addEventListener('click', () => {
+    if (vid.paused) {
+      vid.play().then(() => { if (playBtn) playBtn.style.display = 'none'; }).catch(() => {});
+    } else {
+      vid.pause(); vid.currentTime = 0;
+      if (playBtn) playBtn.style.display = '';
+    }
+  });
+});
+
+/* ---------- Reveal on scroll ---------- */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ---------- Skill bar animation ---------- */
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.skill-bar__fill[data-width]').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+const skillsSection = document.getElementById('skills');
+if (skillsSection) skillObserver.observe(skillsSection);
+
+/* ---------- Timeline staggered ---------- */
+document.querySelectorAll('.timeline__pair').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 150}ms`;
+});
+
+/* ---------- Hero Parallax ---------- */
+const heroMedia = document.querySelector('.hero__media');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      if (scrollY < window.innerHeight && heroMedia) {
+        heroMedia.style.transform = `translateY(${scrollY * 0.12}px)`;
+      }
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+/* ---------- Count-up Animation ---------- */
+let counted = false;
+function animateCountUp() {
+  if (counted) return;
+  counted = true;
+  const stats = document.querySelectorAll('.hero__stat-num');
+  stats.forEach(stat => {
+    const text = stat.textContent;
+    const isPlus = text.includes('+');
+    const target = parseInt(text.replace('+', ''));
+    if (isNaN(target)) return;
+    let current = 0;
+    const increment = Math.max(1, Math.floor(target / 50));
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      stat.textContent = current + (isPlus ? '+' : '');
+    }, 20);
+  });
+}
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCountUp();
+      countObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+const heroStats = document.querySelector('.hero__stats');
+if (heroStats) countObserver.observe(heroStats);
+
+/* ---------- Mobile Hamburger Menu ---------- */
+const menuBtn = document.querySelector('.nav__menu-btn');
+const navLinks = document.querySelector('.nav__links');
+if (menuBtn && navLinks) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('nav__links--open');
+    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  // close menu on link click
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('nav__links--open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+/* ---------- Portfolio Data ---------- */
+const projects = [
+  { title: '青啤劲松五路 · 静澜山', cat: '住宅', cover: '素材/项目/青啤地产——静澜山/作品效果图/封面.webp', images: ['素材/项目/青啤地产——静澜山/作品效果图/01.webp','素材/项目/青啤地产——静澜山/作品效果图/02.webp','素材/项目/青啤地产——静澜山/作品效果图/封面.webp'], desc: '19万㎡住宅 + 3.7万㎡公建，2023年落成。项目除典型住宅设计手法以外，车库方面直接用Grasshopper编写的参数化调整而成，为以后项目的车库参数化设计做了建设性的尝试。', meta: { role: '形象负责、方案主创', scale: '22.7万㎡', status: '已落成' } },
+  { title: '徐州丰县 · 星河湾', cat: '住宅', cover: '素材/项目/佳和地产——徐州·星河湾/项目照片/封皮.webp', images: ['素材/项目/佳和地产——徐州·星河湾/项目照片/01.webp','素材/项目/佳和地产——徐州·星河湾/项目照片/02.webp','素材/项目/佳和地产——徐州·星河湾/项目照片/03.webp'], desc: '10万㎡住宅 + 0.5万㎡公建，2023年竣工。结合Rhino与Lumion渲染，全部渲染参数自动生成，人工微调，甲方接受程度高，后期成果均认可。', meta: { role: '建筑方案总负责、形象主创', scale: '10.5万㎡', status: '已竣工' } },
+  { title: '联东U谷 · 城阳国际企业港', cat: '产业园区', cover: '素材/项目/联东U谷——城阳厂区/作品效果图/封面.webp', images: ['素材/项目/联东U谷——城阳厂区/作品效果图/01.webp','素材/项目/联东U谷——城阳厂区/作品效果图/02.webp','素材/项目/联东U谷——城阳厂区/作品效果图/03.webp','素材/项目/联东U谷——城阳厂区/作品效果图/bim截图.webp'], desc: '10万㎡产业园区，一期竣工。尝试结合GH参数化与Rhino建模，Revit正向设计并与水暖设计师交流沟通管线碰撞，减少项目反复与变更，推动公司BIM模式发展。', meta: { role: '平面方案、立面主创', scale: '10万㎡', status: '一期竣工' } },
+  { title: '临沂润蒙 · 怡景华府', cat: '商业公建', cover: '素材/项目/临沂润蒙——怡景华府/项目照片/封面.webp', images: ['素材/项目/临沂润蒙——怡景华府/项目照片/商业东入口.webp','素材/项目/临沂润蒙——怡景华府/项目照片/商业楼东南角沿街.webp','素材/项目/临沂润蒙——怡景华府/项目照片/商业沿街.webp','素材/项目/临沂润蒙——怡景华府/项目照片/2020-0359-北洋-李光旭-临沂润蒙地块项目-f1鸟瞰-半鸟瞰-9-21-新作-zq2-dln 副本.webp'], desc: '1.8万㎡酒店，2021年落成。酒店坐落在网点上，流线复杂，公私分区压力大，同时处于地标位置。项目完美落成，甲方评价较高，去化迅速。', meta: { role: '方案阶段建筑负责', scale: '1.8万㎡', status: '已落成' } },
+  { title: '标准化与课题研发', cat: '课题研发', cover: '素材/标准化与课题研发/Portfolio 2026_页面_43.webp', images: ['素材/标准化与课题研发/Portfolio 2026_页面_43.webp','素材/标准化与课题研发/Portfolio 2026_页面_44.webp','素材/标准化与课题研发/Portfolio 2026_页面_45.webp'], desc: '建筑标准化设计与课题研究成果展示，涵盖设计方法论、技术研发及创新应用等多个方向。', meta: { role: '课题负责人', scale: '多项成果', status: '持续推进' } },
+  { title: '山西·云阙雅集', cat: '住宅', cover: '素材/项目/新增/山西·云阙雅集/封面.webp', images: ['素材/项目/新增/山西·云阙雅集/01.webp','素材/项目/新增/山西·云阙雅集/02.webp','素材/项目/新增/山西·云阙雅集/03.webp'], desc: '约18万㎡住宅，2024年设计2025年竣工。以"当代晋韵·数字筑居"为理念，创新应用AI全流程设计，车库采用Grasshopper参数化编程，提升车位效率15%。开盘3个月去化92%，成山西AI设计标杆住宅。', meta: { role: '方案负责、形象主创', scale: '18万㎡', status: '已竣工' } },
+  { title: '牟平医药产业园', cat: '产业园区', cover: '素材/项目/新增/牟平医药产业园/封面.webp', images: ['素材/项目/新增/牟平医药产业园/沿街_Mat.webp','素材/项目/新增/牟平医药产业园/鸟瞰_Mat.webp','素材/项目/新增/牟平医药产业园/鸟瞰2  gx 副本副本.webp'], desc: '约45万㎡医药专业园区，2023年设计2024年竣工。"生态园区+智慧运营"核心理念，组团式规划，大跨度钢结构厂房，引入智慧管理系统。', meta: { role: '方案主创、产业园区专项设计', scale: '45万㎡', status: '已竣工' } },
+  { title: '海德曼光电触摸屏生产研发基地', cat: '产业园区', cover: '素材/项目/新增/海德曼光电电容式触摸屏生产研发基地（二期）厂房/封面.webp', images: ['素材/项目/新增/海德曼光电电容式触摸屏生产研发基地（二期）厂房/c1-f2  gx  - 副本副本.webp','素材/项目/新增/海德曼光电电容式触摸屏生产研发基地（二期）厂房/c2-f2-----ZHF.webp','素材/项目/新增/海德曼光电电容式触摸屏生产研发基地（二期）厂房/c3黄昏-f2gx   副本.webp'], desc: '约15万㎡，2021年设计2025年竣工。"智慧制造+绿色研发"标杆园区。光伏一体化玻璃幕墙，BIM优化空间，AI物流算法降低运营成本15%。', meta: { role: '方案主创、产业建筑专项设计', scale: '15万㎡', status: '已竣工' } },
+  { title: '红岛街道中心小学', cat: '教育建筑', cover: '素材/项目/新增/红岛中心小学/封面.webp', images: ['素材/项目/新增/红岛中心小学/0.webp','素材/项目/新增/红岛中心小学/2.webp','素材/项目/新增/红岛中心小学/02.webp'], desc: '建筑面积17000㎡，2012-2013年设计，2014年竣工。红岛首所现代化公办小学，配备大型报告厅、室内体育馆，获评山东省文明校园等数十项荣誉。', meta: { role: '方案主创、教育建筑专项设计', scale: '1.7万㎡', status: '已竣工' } }
+];
+
+const awardsData = [
+  { year: '2022', title: '青岛市绿色建材专家委员会专家', detail: '行业专家聘任', icon: '★' },
+  { year: '2021', title: '国家一级注册建筑师资格', detail: '国家级执业资格', icon: '◆' },
+  { year: '2021', title: '高级工程师职称', detail: '省级职称认定', icon: '◆' },
+  { year: '2020', title: '全国BIM技能等级考试一级证书', detail: '国家级技能认证', icon: '▣' },
+  { year: '2018–2020', title: '三项新型实用专利', detail: '建筑设计相关，均为第一发明人', icon: '◎' },
+  { year: '2015–2022', title: '省市级设计奖项', detail: '多个项目获市级优秀设计奖', icon: '◇' }
+];
+
+/* ---------- Render Portfolio with stagger ---------- */
+const gallery = document.getElementById('gallery');
+let currentFilter = 'all';
+let currentDrawerIdx = 0;
+
+function renderGallery(filter) {
+  const filtered = filter === 'all' ? projects : projects.filter(p => p.cat === filter);
+  gallery.innerHTML = filtered.map((p, i) => `<div class="gallery__card" role="listitem" data-filtered-index="${i}" data-cat="${p.cat}" style="transition-delay:${i * 80}ms"><div class="gallery__card-img"><img src="${p.cover}" alt="${p.title}" loading="lazy" /></div><div class="gallery__card-body"><p class="gallery__card-cat">${p.cat}</p><h3 class="gallery__card-title">${p.title}</h3><p class="gallery__card-desc">${p.desc.slice(0, 60)}…</p></div></div>`).join('');
+  // re-trigger reveal for new cards
+  gallery.querySelectorAll('.gallery__card').forEach(card => {
+    card.classList.add('reveal');
+    revealObserver.observe(card);
+    card.addEventListener('click', () => {
+      const fi = parseInt(card.dataset.filteredIndex);
+      const filteredList = currentFilter === 'all' ? projects : projects.filter(p => p.cat === currentFilter);
+      const realIdx = projects.indexOf(filteredList[fi]);
+      currentDrawerIdx = realIdx;
+      openDrawer(realIdx);
+    });
+  });
+}
+
+document.querySelectorAll('.portfolio__filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.portfolio__filter').forEach(b => { b.classList.remove('portfolio__filter--active'); b.setAttribute('aria-selected', 'false'); });
+    btn.classList.add('portfolio__filter--active'); btn.setAttribute('aria-selected', 'true');
+    currentFilter = btn.dataset.filter; renderGallery(currentFilter);
+  });
+});
+
+/* ---------- Drawer with prev/next ---------- */
+const drawer = document.getElementById('drawer'), drawerOverlay = document.getElementById('drawerOverlay'), drawerClose = document.getElementById('drawerClose'), drawerPrev = document.getElementById('drawerPrev'), drawerNext = document.getElementById('drawerNext'), drawerCat = document.getElementById('drawerCat'), drawerBody = document.getElementById('drawerBody');
+
+function openDrawer(idx) {
+  currentDrawerIdx = idx;
+  const p = projects[idx];
+  drawerCat.textContent = p.cat;
+  drawerBody.innerHTML = `<h2 class="drawer__title">${p.title}</h2><dl class="drawer__meta"><div class="drawer__meta-item"><dt>Role</dt><dd>${p.meta.role}</dd></div><div class="drawer__meta-item"><dt>Scale</dt><dd>${p.meta.scale}</dd></div><div class="drawer__meta-item"><dt>Status</dt><dd>${p.meta.status}</dd></div></dl><p class="drawer__desc">${p.desc}</p><div class="drawer__gallery">${p.images.map(img => `<img src="${img}" alt="${p.title}" loading="lazy" />`).join('')}</div>`;
+  drawerPrev.disabled = idx <= 0;
+  drawerNext.disabled = idx >= projects.length - 1;
+  drawer.classList.add('drawer--open'); drawerOverlay.classList.add('drawer-overlay--open'); document.body.style.overflow = 'hidden';
+  drawerClose.focus();
+}
+
+function closeDrawer() { drawer.classList.remove('drawer--open'); drawerOverlay.classList.remove('drawer-overlay--open'); document.body.style.overflow = ''; }
+drawerClose.addEventListener('click', closeDrawer);
+drawerOverlay.addEventListener('click', closeDrawer);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeDrawer(); closeLightbox(); closeQR(); } if (e.key === 'ArrowLeft' && drawer.classList.contains('drawer--open')) { e.preventDefault(); if (drawerPrev && !drawerPrev.disabled) { openDrawer(currentDrawerIdx - 1); } } if (e.key === 'ArrowRight' && drawer.classList.contains('drawer--open')) { e.preventDefault(); if (drawerNext && !drawerNext.disabled) { openDrawer(currentDrawerIdx + 1); } } });
+
+if (drawerPrev) drawerPrev.addEventListener('click', () => { if (currentDrawerIdx > 0) openDrawer(currentDrawerIdx - 1); });
+if (drawerNext) drawerNext.addEventListener('click', () => { if (currentDrawerIdx < projects.length - 1) openDrawer(currentDrawerIdx + 1); });
+
+/* ---------- Render Awards ---------- */
+document.getElementById('awardsGrid').innerHTML = awardsData.map(a => `<div class="award-card reveal"><div class="award-card__icon">${a.icon}</div><div><div class="award-card__year">${a.year}</div><div class="award-card__title">${a.title}</div><div class="award-card__detail">${a.detail}</div></div></div>`).join('');
+document.querySelectorAll('#awardsGrid .reveal').forEach(el => revealObserver.observe(el));
+
+/* ---------- Render Certificate scans ---------- */
+const certs = [
+  { label: '一级注册建筑师', src: '素材/履历数据/技能证书/一级注册建筑师证书.webp' },
+  { label: '高级工程师职称', src: '素材/履历数据/技能证书/李畅-职称证.webp' },
+  { label: 'BIM 技能等级考试一级', src: '素材/履历数据/技能证书/全国BIM技能等级考试 一级证书-李畅.webp' },
+  { label: '专利 01 · 叠墅户型', src: '素材/履历数据/获奖证书/专利01-解决电梯独立入户的叠墅户型建筑-李畅.webp' },
+  { label: '专利 02 · 被动式气帘新风', src: '素材/履历数据/获奖证书/专利02-用于敞开式厨房的被动式气帘新风系统-李畅.webp' },
+  { label: '专利 03 · 宽厅双首层三叠洋房', src: '素材/履历数据/获奖证书/专利03-宽厅双首层三叠洋房-李畅.webp' },
+  { label: '市二等奖 · 青岛世界博览城', src: '素材/履历数据/获奖证书/市二等奖《中铁·青岛世界博览城2-1地块》-李畅.webp' },
+  { label: '市二等奖 · 城发·润园', src: '素材/履历数据/获奖证书/市二等奖《城发·润园建筑设计》-李畅.webp' },
+  { label: '市三等奖 · 众创驿站·融慧社区', src: '素材/履历数据/获奖证书/市三等奖《IS YARD--众创驿站·融慧社区》-李畅.webp' },
+  { label: '市三等奖 · 九号养老公寓', src: '素材/履历数据/获奖证书/市三等奖《九号养老公寓（三期）》-李畅.webp' },
+  { label: '市三等奖 · 城阳一中扩建', src: '素材/履历数据/获奖证书/市三等奖《城阳一中扩建工程》-李畅.webp' }
+];
+const certGrid = document.getElementById('certGrid');
+certGrid.innerHTML = certs.map(c => `<div class="cert-item reveal" data-src="${c.src}" data-label="${c.label}" role="button" tabindex="0" aria-label="查看大图：${c.label}"><img src="${c.src}" alt="${c.label}" loading="lazy" /><span class="cert-item__label">${c.label}</span></div>`).join('');
+certGrid.querySelectorAll('.cert-item').forEach(el => revealObserver.observe(el));
+
+/* ---------- Lightbox ---------- */
+const lightbox = document.getElementById('lightbox'), lightboxImg = document.getElementById('lightboxImg'), lightboxCaption = document.getElementById('lightboxCaption'), lightboxClose = document.getElementById('lightboxClose');
+function openLightbox(src, label) { lightboxImg.src = src; lightboxImg.alt = label || ''; lightboxCaption.textContent = label || ''; lightbox.classList.add('lightbox--open'); document.body.style.overflow = 'hidden'; lightboxClose.focus(); }
+function closeLightbox() { lightbox.classList.remove('lightbox--open'); document.body.style.overflow = ''; lightboxImg.src = ''; }
+certGrid.addEventListener('click', (e) => {
+  const item = e.target.closest('.cert-item');
+  if (item) openLightbox(item.dataset.src, item.dataset.label);
+});
+certGrid.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') { const item = e.target.closest('.cert-item'); if (item) { e.preventDefault(); openLightbox(item.dataset.src, item.dataset.label); } }
+});
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+/* ---------- QR modal ---------- */
+const qrOverlay = document.getElementById('qrOverlay'), qrClose = document.getElementById('qrClose'), qrOpen = document.getElementById('qrOpen');
+function openQR() { qrOverlay.classList.add('qr-overlay--open'); document.body.style.overflow = 'hidden'; }
+function closeQR() { qrOverlay.classList.remove('qr-overlay--open'); document.body.style.overflow = ''; }
+if (qrOpen) qrOpen.addEventListener('click', openQR);
+if (qrClose) qrClose.addEventListener('click', closeQR);
+qrOverlay.addEventListener('click', (e) => { if (e.target === qrOverlay) closeQR(); });
+
+renderGallery('all');
+</script>
+</body>
+</html>
