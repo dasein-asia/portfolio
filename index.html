@@ -325,6 +325,12 @@ canvas { display: block; }
 .footer__info a:hover { color: #fff; }
 .footer__info-item { display: flex; align-items: center; gap: var(--space-xs); }
 .footer__copy { font-size: var(--text-xs); color: oklch(45% 0.004 250); padding-top: var(--space-lg); border-top: 1px solid oklch(30% 0.006 250); width: 100%; max-width: 480px; }
+.footer__qr { display: flex; flex-direction: column; align-items: center; gap: var(--space-2xs); }
+.footer__qr-img { width: 148px; height: 148px; padding: var(--space-sm); background: #fff; border-radius: var(--radius-md); border: 1px solid oklch(35% 0.006 250); box-shadow: 0 8px 24px oklch(0% 0 0 / 0.2); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.footer__qr-img:hover { transform: translateY(-3px); box-shadow: 0 12px 32px oklch(0% 0 0 / 0.3); }
+.footer__qr-img img { width: 100%; height: 100%; display: block; }
+.footer__qr-title { font-family: var(--font-display); font-size: var(--text-base); font-weight: 600; color: #fff; letter-spacing: 0.02em; }
+.footer__qr-sub { font-size: var(--text-xs); color: oklch(58% 0.008 250); }
 
 /* ---------- Awards: certificate scans gallery ---------- */
 .awards__sub-title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; margin: var(--space-2xl) 0 var(--space-lg); letter-spacing: -0.01em; }
@@ -482,27 +488,14 @@ canvas { display: block; }
       <div class="timeline__pair reveal">
         <div class="timeline__pair-content">
           <div class="timeline__dot"></div>
-          <div class="timeline__year">2025 — 2026</div>
-          <div class="timeline__role">建筑方案项目经理</div>
-          <div class="timeline__company">建筑工作室</div>
-          <div class="timeline__desc">主导多个前期方案项目，探索AI辅助设计与传统建筑流程的深度融合。</div>
+          <div class="timeline__year">2011 — 2023</div>
+          <div class="timeline__role">建筑设计负责</div>
+          <div class="timeline__company">青岛北洋建筑设计有限公司</div>
+          <div class="timeline__desc">从建筑设计师成长为项目负责人，深耕住宅、教育及商业综合体领域，积累了丰富的全周期设计管理经验。</div>
         </div>
         <div class="timeline__pair-img">
-          <img src="素材/历程图片/Portfolio 2026 2.webp" alt="2025-2026 项目" loading="lazy" />
-          <span class="timeline__img-label">2025 → 2026</span>
-        </div>
-      </div>
-      <div class="timeline__pair reveal">
-        <div class="timeline__pair-content">
-          <div class="timeline__dot"></div>
-          <div class="timeline__year">2024 — 2025</div>
-          <div class="timeline__role">建筑方案顾问</div>
-          <div class="timeline__company">安徽宝翔建筑工程有限公司</div>
-          <div class="timeline__desc">提供建筑方案技术咨询与设计优化服务，参与大型住宅及商业项目方案评审。</div>
-        </div>
-        <div class="timeline__pair-img">
-          <img src="素材/历程图片/Portfolio 2026 3.webp" alt="2024-2025 项目" loading="lazy" />
-          <span class="timeline__img-label">2024 → 2025</span>
+          <img src="素材/历程图片/多层南.webp" alt="2011-2023 项目" loading="lazy" />
+          <span class="timeline__img-label">2011 → 2023</span>
         </div>
       </div>
       <div class="timeline__pair reveal">
@@ -521,14 +514,27 @@ canvas { display: block; }
       <div class="timeline__pair reveal">
         <div class="timeline__pair-content">
           <div class="timeline__dot"></div>
-          <div class="timeline__year">2011 — 2023</div>
-          <div class="timeline__role">建筑设计负责</div>
-          <div class="timeline__company">青岛北洋建筑设计有限公司</div>
-          <div class="timeline__desc">从建筑设计师成长为项目负责人，深耕住宅、教育及商业综合体领域，积累了丰富的全周期设计管理经验。</div>
+          <div class="timeline__year">2024 — 2025</div>
+          <div class="timeline__role">建筑方案顾问</div>
+          <div class="timeline__company">安徽宝翔建筑工程有限公司</div>
+          <div class="timeline__desc">提供建筑方案技术咨询与设计优化服务，参与大型住宅及商业项目方案评审。</div>
         </div>
         <div class="timeline__pair-img">
-          <img src="素材/历程图片/多层南.webp" alt="2011-2023 项目" loading="lazy" />
-          <span class="timeline__img-label">2011 → 2023</span>
+          <img src="素材/历程图片/Portfolio 2026 3.webp" alt="2024-2025 项目" loading="lazy" />
+          <span class="timeline__img-label">2024 → 2025</span>
+        </div>
+      </div>
+      <div class="timeline__pair reveal">
+        <div class="timeline__pair-content">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2025 — 2026</div>
+          <div class="timeline__role">建筑方案项目经理</div>
+          <div class="timeline__company">建筑工作室</div>
+          <div class="timeline__desc">主导多个前期方案项目，探索AI辅助设计与传统建筑流程的深度融合。</div>
+        </div>
+        <div class="timeline__pair-img">
+          <img src="素材/历程图片/Portfolio 2026 2.webp" alt="2025-2026 项目" loading="lazy" />
+          <span class="timeline__img-label">2025 → 2026</span>
         </div>
       </div>
     </div>
@@ -729,6 +735,13 @@ canvas { display: block; }
       <div class="footer__social">
         <a href="mailto:676323812@qq.com" aria-label="Email">@</a>
         <button id="qrOpen" class="footer__social-btn" aria-label="微信二维码" title="微信: 15964202241">微</button>
+      </div>
+      <div class="footer__qr">
+        <div class="footer__qr-img">
+          <img src="素材/个人信息/网站二维码.png" alt="网站二维码" loading="lazy" />
+        </div>
+        <div class="footer__qr-title">网站二维码</div>
+        <div class="footer__qr-sub">手机扫一扫 · 直达作品集</div>
       </div>
       <div class="footer__info">
         <span class="footer__info-item">15964202241</span>
