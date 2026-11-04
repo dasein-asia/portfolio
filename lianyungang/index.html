@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fbf8f3">
+<title>连云港 · 亲子三日 | 2026.11.5–11.7</title>
+<meta name="description" content="连云港三天两夜亲子行程：住桔子水晶万达广场店，花果山看猴，避坑本地吃食与非网红景点。">
+<style>
+  :root{
+    --paper:#fbf8f3;
+    --card:#fffdf9;
+    --ink:#26231f;
+    --muted:#6f6a61;
+    --line:#e6dfd3;
+    --orange:#c4661f;
+    --orange-soft:#f6e7d8;
+    --green:#3f6b4f;
+    --green-soft:#e6efe7;
+    --gold:#a8812c;
+    --shadow:0 1px 2px rgba(38,35,31,.04), 0 8px 24px -12px rgba(38,35,31,.18);
+    --serif:"Songti SC","Source Han Serif SC","Noto Serif SC",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--orange);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:56px 0 36px;border-bottom:1px solid var(--line)}
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 10%, rgba(196,102,31,.10), transparent 70%),
+      radial-gradient(ellipse 55% 45% at 8% 90%, rgba(63,107,79,.10), transparent 70%);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative}
+  .kicker{font-size:12px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;margin:0 0 14px}
+  h1{font-family:var(--serif);font-size:clamp(34px,8vw,52px);line-height:1.12;margin:0 0 14px;font-weight:600;letter-spacing:.01em}
+  h1 small{display:block;font-family:var(--sans);font-size:clamp(13px,3.4vw,15px);font-weight:400;color:var(--muted);letter-spacing:.06em;margin-top:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .chip{font-size:13px;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:#4a463f}
+  .chip b{color:var(--ink);font-weight:600}
+
+  /* ---------- nav ---------- */
+  nav{position:sticky;top:0;z-index:20;background:rgba(251,248,243,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-top:10px;padding-bottom:10px}
+  nav .wrap::-webkit-scrollbar{display:none}
+  nav a{flex:0 0 auto;font-size:13.5px;color:#57534b;padding:5px 10px;border-radius:8px;white-space:nowrap}
+  nav a:hover{background:var(--orange-soft);color:var(--orange);text-decoration:none}
+
+  /* ---------- sections ---------- */
+  section{padding:40px 0 8px;scroll-margin-top:60px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+  .sec-head h2{font-family:var(--serif);font-size:clamp(23px,5vw,29px);margin:0;font-weight:600;letter-spacing:.02em}
+  .sec-head .no{font-family:var(--serif);font-size:14px;color:var(--orange);letter-spacing:.1em}
+  .lead{color:var(--muted);margin:-6px 0 22px;font-size:15px}
+
+  /* ---------- cards ---------- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);margin-bottom:14px}
+  .card h3{margin:0 0 4px;font-size:16.5px;font-weight:650}
+  .card p{margin:4px 0 0;font-size:14.5px;color:#4f4a42}
+  .meta{font-size:13px;color:var(--muted);margin-top:8px}
+  .row{display:flex;gap:12px;align-items:flex-start}
+  .ico{flex:0 0 38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:18px;background:var(--orange-soft)}
+  .ico.green{background:var(--green-soft)}
+
+  /* ---------- timeline ---------- */
+  .day{margin-bottom:34px}
+  .day-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+  .day-head .d{font-family:var(--serif);font-size:20px;font-weight:600}
+  .day-head .t{font-size:13px;color:var(--muted);letter-spacing:.06em}
+  .tl{position:relative;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:var(--line)}
+  .tl-item{position:relative;padding:0 0 18px}
+  .tl-item::before{content:"";position:absolute;left:-23px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px var(--paper)}
+  .tl-time{font-size:12.5px;color:var(--orange);font-weight:650;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+  .tl-body{margin-top:2px;font-size:14.5px}
+  .tl-body strong{font-weight:650}
+  .tl-body .sub{color:var(--muted);font-size:13px}
+
+  /* ---------- route strip ---------- */
+  .route{display:grid;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+  .route-step{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .route-step:last-child{border-bottom:0}
+  .route-step .n{font-family:var(--serif);font-size:15px;color:var(--orange);text-align:center}
+  .route-step .what{font-size:14.5px;font-weight:600}
+  .route-step .note{font-size:12.5px;color:var(--muted);font-weight:400;margin-top:1px}
+  .route-step .cost{font-size:12.5px;color:var(--green);font-weight:650;white-space:nowrap}
+  .route-step.hi{background:var(--green-soft)}
+
+  /* ---------- table ---------- */
+  .tbl{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+  .tbl-row{display:grid;grid-template-columns:1.1fr 1.6fr .8fr;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line);font-size:14px}
+  .tbl-row:last-child{border-bottom:0}
+  .tbl-row.head{background:#f4efe6;font-size:12px;letter-spacing:.08em;color:var(--muted);font-weight:600}
+  .tbl-row .k{font-weight:650}
+  .tbl-row .v{color:#4f4a42}
+  .badge{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:6px;background:var(--orange-soft);color:#8a4b18;white-space:nowrap}
+  .badge.g{background:var(--green-soft);color:#2f553d}
+
+  /* ---------- lists ---------- */
+  ul.clean{list-style:none;padding:0;margin:0}
+  ul.clean li{position:relative;padding:9px 0 9px 24px;font-size:14.5px;border-bottom:1px dashed var(--line)}
+  ul.clean li:last-child{border-bottom:0}
+  ul.clean li::before{content:"";position:absolute;left:4px;top:17px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  ul.clean.no li::before{background:#c0483c;border-radius:2px;width:8px;height:2px;top:19px;left:3px}
+  .kv{font-weight:650}
+
+  /* ---------- callout ---------- */
+  .callout{border-left:3px solid var(--orange);background:linear-gradient(90deg,var(--orange-soft),transparent 85%);padding:14px 16px;border-radius:0 10px 10px 0;font-size:14px;margin:14px 0}
+  .callout.warn{border-left-color:#c0483c;background:linear-gradient(90deg,#f7e3df,transparent 85%)}
+  .callout.ok{border-left-color:var(--green);background:linear-gradient(90deg,var(--green-soft),transparent 85%)}
+  .callout b{font-weight:650}
+
+  /* ---------- checklist ---------- */
+  .check{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 18px;box-shadow:var(--shadow)}
+  .check label{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14.5px;cursor:pointer}
+  .check label:last-child{border-bottom:0}
+  .check input{appearance:none;flex:0 0 18px;width:18px;height:18px;margin:3px 0 0;border:1.5px solid #c9c0b2;border-radius:5px;background:#fff;cursor:pointer;position:relative}
+  .check input:checked{background:var(--green);border-color:var(--green)}
+  .check input:checked::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .check input:checked + span{color:var(--muted);text-decoration:line-through}
+  .progress{font-size:12.5px;color:var(--muted);margin:10px 0 0;text-align:right}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:48px;padding:28px 0 44px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;text-align:center}
+  footer a{color:var(--muted)}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:520px){
+    .wrap{padding:0 16px}
+    .hero{padding:44px 0 30px}
+    .tbl-row{grid-template-columns:1fr;gap:2px;padding:12px 14px}
+    .tbl-row.head{display:none}
+    .tbl-row .k{font-size:15px}
+    .route-step{grid-template-columns:36px 1fr;padding:13px 14px}
+    .route-step .cost{grid-column:2;font-size:12px}
+    .card{padding:17px}
+  }
+  @media print{
+    nav{display:none}
+    body{background:#fff;font-size:12pt}
+    .card,.tbl,.route,.check{box-shadow:none}
+    section{padding:18px 0 0;break-inside:avoid}
+    .hero{padding:20px 0}
+    a{color:inherit}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Family Trip · Lianyungang</p>
+    <h1>连云港三日
+      <small>2026.11.5 周四 — 11.7 周六 · 亲子 · 三天两夜</small>
+    </h1>
+    <div class="chips">
+      <span class="chip">住 <b>桔子水晶 · 万达广场店</b></span>
+      <span class="chip">到站 <b>11.5 · 10:40</b></span>
+      <span class="chip">重点 <b>花果山看猴</b></span>
+      <span class="chip">基调 <b>不赶海 · 不走网红点</b></span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#stay">住宿</a>
+    <a href="#plan">行程</a>
+    <a href="#huaguo">花果山</a>
+    <a href="#eat">吃什么</a>
+    <a href="#see">逛什么</a>
+    <a href="#tips">贴士</a>
+    <a href="#list">清单</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ 住宿 ============ -->
+<section id="stay">
+  <div class="sec-head"><span class="no">01</span><h2>住哪儿</h2></div>
+  <div class="card">
+    <div class="row">
+      <div class="ico">⌂</div>
+      <div>
+        <h3>桔子水晶酒店 · 连云港万达广场店</h3>
+        <p>海州区东盐河路时尚街区 C4 号楼</p>
+        <p class="meta">电话 0518-8575 2222 · 距连云港站约 7 km，打车 20 分钟</p>
+        <p class="meta">
+          <a href="https://uri.amap.com/search?keyword=%E6%A9%98%E5%AD%90%E6%B0%B4%E6%99%B6%E9%85%92%E5%BA%97%E8%BF%9E%E4%BA%91%E6%B8%AF%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E5%BA%97" target="_blank" rel="noopener">高德导航 →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="callout ok">
+    <b>选对了。</b>这个位置在市区（海州），去连云港站、花果山、孔望山都顺，吃饭也方便。比住连岛、连云区少折腾一大截。
+  </div>
+</section>
+
+<!-- ============ 行程 ============ -->
+<section id="plan">
+  <div class="sec-head"><span class="no">02</span><h2>三天怎么走</h2></div>
+  <p class="lead">按「到站 10:40、住万达、后天花果山」排的，节奏留了余量，孩子累了随时能回酒店。</p>
+
+  <!-- D1 -->
+  <div class="day">
+    <div class="day-head"><span class="d">D1 · 11.5 周四</span><span class="t">抵达 · 老城半天</span></div>
+    <div class="tl">
+      <div class="tl-item"><div class="tl-time">10:40</div><div class="tl-body"><strong>连云港站下车</strong><div class="sub">出租车点在火车站地下 P1 停车场</div></div></div>
+      <div class="tl-item"><div class="tl-time">10:50</div><div class="tl-body"><strong>打车去酒店</strong><div class="sub">约 7 km / 20 分钟 / 15–20 元</div></div></div>
+      <div class="tl-item"><div class="tl-time">11:15</div><div class="tl-body"><strong>到店，寄存行李</strong><div class="sub">能早入住就先入住，让孩子安顿一下</div></div></div>
+      <div class="tl-item"><div class="tl-time">11:45</div><div class="tl-body"><strong>午饭</strong><div class="sub">万达广场里解决，或附近本地馆子吃板浦凉粉、赣榆煎饼</div></div></div>
+      <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-body"><strong>海州古城 · 朐阳门一带</strong><div class="sub">老城区走走，不赶景点，1–2 小时</div></div></div>
+      <div class="tl-item"><div class="tl-time">15:30</div><div class="tl-body"><strong>连云港市博物馆</strong><div class="sub">免费；有汉代凌惠平湿尸，孩子胆小可略过；周一闭馆，周四正常</div></div></div>
+      <div class="tl-item"><div class="tl-time">17:30</div><div class="tl-body"><strong>回酒店休息</strong></div></div>
+      <div class="tl-item"><div class="tl-time">18:30</div><div class="tl-body"><strong>晚饭：沙光鱼 + 板浦凉粉</strong><div class="sub">11 月正是沙光鱼的时候，「十月沙光赛羊汤」</div></div></div>
+    </div>
+  </div>
+
+  <!-- D2 -->
+  <div class="day">
+    <div class="day-head"><span class="d">D2 · 11.6 周五</span><span class="t">花果山 · 全天主场</span></div>
+    <div class="tl">
+      <div class="tl-item"><div class="tl-time">07:20</div><div class="tl-body"><strong>早饭</strong><div class="sub">酒店早餐，或楼下早点摊辣汤 + 油条/煎饼</div></div></div>
+      <div class="tl-item"><div class="tl-time">08:00</div><div class="tl-body"><strong>打车去花果山山门</strong><div class="sub">约 7–8 km / 15 分钟 / 15–20 元</div></div></div>
+      <div class="tl-item"><div class="tl-time">08:20</div><div class="tl-body"><strong>到山门，换票</strong><div class="sub">线上提前买好，省排队</div></div></div>
+      <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-body"><strong>入园 → 立刻扫码预约水帘洞</strong><div class="sub">只能入园后约，别拖；约不到的时段再问工作人员</div></div></div>
+      <div class="tl-item"><div class="tl-time">08:40</div><div class="tl-body"><strong>景交车 → 玉女峰</strong><div class="sub">25 元 / 约 20–25 分钟，直达江苏最高峰</div></div></div>
+      <div class="tl-item"><div class="tl-time">09:10</div><div class="tl-body"><strong>玉女峰看景</strong><div class="sub">海拔 624.4 m，拍照 15 分钟</div></div></div>
+      <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-body"><strong>索道下行 → 水帘洞站</strong><div class="sub">30 元 / 几分钟，省掉最累的一段</div></div></div>
+      <div class="tl-item"><div class="tl-time">09:40</div><div class="tl-body"><strong>猴区主战场</strong><div class="sub">水帘洞出口广场 → 照海亭 → 七十二洞 → 怪石园，慢慢看，80 分钟</div></div></div>
+      <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-body"><strong>进水帘洞</strong><div class="sub">按预约时段，洞内单向、台阶湿滑</div></div></div>
+      <div class="tl-item"><div class="tl-time">11:40</div><div class="tl-body"><strong>三元宫古建筑群</strong></div></div>
+      <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-body"><strong>景交车下山</strong><div class="sub">三元宫站 20 元 / 九龙桥站 15 元</div></div></div>
+      <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-body"><strong>出园，回市区午饭</strong></div></div>
+      <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-body"><strong>回酒店午休</strong><div class="sub">孩子睡一觉，晚上才有精神</div></div></div>
+      <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-body"><strong>万达 / 盐河街周边闲逛</strong></div></div>
+    </div>
+  </div>
+
+  <!-- D3 -->
+  <div class="day">
+    <div class="day-head"><span class="d">D3 · 11.7 周六</span><span class="t">返程前 · 就近半天</span></div>
+    <div class="tl">
+      <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-body"><strong>早饭、退房、寄存行李</strong></div></div>
+      <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-body"><strong>孔望山摩崖造像</strong><div class="sub">东汉佛教造像，号称比敦煌还早；小山头 1–2 小时，孩子能走</div></div></div>
+      <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-body"><strong>回酒店取行李</strong></div></div>
+      <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-body"><strong>午饭</strong></div></div>
+      <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-body"><strong>打车去连云港站</strong><div class="sub">约 7 km / 20 分钟；按车次提前 40 分钟到站</div></div></div>
+    </div>
+    <div class="callout">
+      <b>备选：</b>如果孩子对古迹没兴趣，D3 上午换成「将军崖岩画」（20–40 分钟，顺路）或直接去万达玩，别硬塞。
+    </div>
+  </div>
+</section>
+
+<!-- ============ 花果山 ============ -->
+<section id="huaguo">
+  <div class="sec-head"><span class="no">03</span><h2>花果山 · 看猴路线</h2></div>
+  <p class="lead">猴子在半山的三元宫一带，不在山顶。所以路线是「坐车上顶 → 索道下猴区 → 猴区慢慢逛 → 坐车下山」，体力全花在看猴上。</p>
+
+  <div class="route">
+    <div class="route-step"><div class="n">01</div><div><div class="what">山门 → 玉女峰</div><div class="note">景交车，20–25 分钟</div></div><div class="cost">25 元</div></div>
+    <div class="route-step"><div class="n">02</div><div><div class="what">玉女峰 → 水帘洞站</div><div class="note">索道，几分钟</div></div><div class="cost">30 元</div></div>
+    <div class="route-step hi"><div class="n">03</div><div><div class="what">水帘洞 · 照海亭 · 七十二洞 · 怪石园</div><div class="note">猴区核心，重点停留 60–90 分钟</div></div><div class="cost">免费</div></div>
+    <div class="route-step"><div class="n">04</div><div><div class="what">三元宫 → 下山</div><div class="note">景交车；九龙桥站更便宜</div></div><div class="cost">15–20 元</div></div>
+  </div>
+
+  <div class="callout warn">
+    <b>索道停运怎么办：</b>舍弃玉女峰，景交车直接坐到三元宫站（20 元），原地进猴区，逛完原站坐车下山。少花钱少走路，看猴不打折。
+  </div>
+
+  <h3 style="font-size:16px;margin:24px 0 10px">票价一览</h3>
+  <div class="tbl">
+    <div class="tbl-row head"><div>项目</div><div>说明</div><div>价格</div></div>
+    <div class="tbl-row"><div class="k">成人门票</div><div class="v">线上约 85，现场 90（11 月按旺季）</div><div>85–90 元</div></div>
+    <div class="tbl-row"><div class="k">儿童</div><div class="v">1.4 m 以下或 6 周岁以下免票；6–18 岁优惠票</div><div>0 / 45 元</div></div>
+    <div class="tbl-row"><div class="k">景交车</div><div class="v">仙人湖→玉女峰 25；→三元宫 20；→九龙桥 15；下山约 20</div><div>15–25 元</div></div>
+    <div class="tbl-row"><div class="k">索道</div><div class="v">九龙桥—水帘洞—玉女峰，单段 30</div><div>30 元</div></div>
+  </div>
+  <p class="meta">成人单人合计约 160 元（门票 85 + 车 25 + 索道 30 + 下山 20），不含孩子。</p>
+
+  <h3 style="font-size:16px;margin:24px 0 10px">猴区在哪儿（按出现概率）</h3>
+  <ul class="clean">
+    <li><span class="kv">水帘洞出口广场 / 上洞口—三元宫停车场</span>：最多、最不怕人，主力打卡点</li>
+    <li><span class="kv">照海亭</span>：容易偶遇成群猴子</li>
+    <li><span class="kv">怪石园 → 三元宫车站的树林</span>：抬头看树，成片猴子在荡树</li>
+    <li><span class="kv">玉皇阁平台 → 水帘洞上台阶口</span>：有猴群，胆子偏小</li>
+    <li><span class="kv">玉女峰</span>：有但少，脾气差，别专门等</li>
+  </ul>
+  <p class="meta">最佳时段：开门后 1–2 小时；下午 15:00–17:00 是第二波。天冷、人多、大风时猴子会躲。</p>
+
+  <div class="callout">
+    <b>「猴王园」里没有猴子。</b>别被名字骗了，那只是个凉快的石头洞。
+  </div>
+</section>
+
+<!-- ============ 吃 ============ -->
+<section id="eat">
+  <div class="sec-head"><span class="no">04</span><h2>吃什么</h2></div>
+  <p class="lead">青岛来的，海鲜不是重点。下面都是连云港本地人吃的东西，按「值不值得试」排。</p>
+  <div class="tbl">
+    <div class="tbl-row head"><div>东西</div><div>怎么吃 / 味道</div><div>孩子</div></div>
+    <div class="tbl-row"><div class="k">沙光鱼</div><div class="v">灌河口小鱼，炖汤奶白，鲜；<span class="badge g">11 月正当时</span></div><div>能喝汤</div></div>
+    <div class="tbl-row"><div class="k">板浦凉粉</div><div class="v">绿豆凉粉，凉拌蒜醋或炒，便宜</div><div>好接受</div></div>
+    <div class="tbl-row"><div class="k">赣榆煎饼</div><div class="v">薄脆，卷菜吃，本地主食</div><div>好</div></div>
+    <div class="tbl-row"><div class="k">灌云豆丹</div><div class="v">豆天蛾幼虫，头号招牌；<span class="badge">时令已过</span>11 月多为冷冻/罐装，别专程跑</div><div>一半一半</div></div>
+    <div class="tbl-row"><div class="k">东海老淮猪肉</div><div class="v">地方猪种，红烧/炖，到东海县才稳</div><div>好</div></div>
+    <div class="tbl-row"><div class="k">汪恕有滴醋</div><div class="v">板浦老字号，买一瓶带走</div><div>—</div></div>
+    <div class="tbl-row"><div class="k">云雾茶</div><div class="v">云台山特产，带回家</div><div>—</div></div>
+  </div>
+  <div class="callout ok">
+    <b>早点吃法：</b>苏北式辣汤 + 油条/煎饼。找老小区门口的摊子，避开景区门口。
+  </div>
+  <div class="callout warn">
+    <b>避雷：</b>景区门口的「海鲜大排档」，价格和品质都不占便宜。
+  </div>
+</section>
+
+<!-- ============ 逛 ============ -->
+<section id="see">
+  <div class="sec-head"><span class="no">05</span><h2>逛什么</h2></div>
+  <p class="lead">避开游客打卡地，走冷门但有真东西的。</p>
+  <div class="tbl">
+    <div class="tbl-row head"><div>地点</div><div>看什么</div><div>时长</div></div>
+    <div class="tbl-row"><div class="k">孔望山摩崖造像</div><div class="v">东汉佛教造像，号称比敦煌还早，小山头</div><div>1–2 h</div></div>
+    <div class="tbl-row"><div class="k">将军崖岩画</div><div class="v">新石器「东方天书」，地方小，顺路看</div><div>20–40 min</div></div>
+    <div class="tbl-row"><div class="k">海州古城 · 朐阳门</div><div class="v">老城区街巷，比商业街真实</div><div>1–2 h</div></div>
+    <div class="tbl-row"><div class="k">市博物馆</div><div class="v">免费；汉代凌惠平湿尸</div><div>1–1.5 h</div></div>
+    <div class="tbl-row"><div class="k">枫树湾 · 宿城</div><div class="v">11 月红叶季，云台山</div><div>2–3 h</div></div>
+    <div class="tbl-row"><div class="k">东海温泉</div><div class="v">舒服，但离市区 60–70 km，不顺路</div><div>半天</div></div>
+  </div>
+  <h3 style="font-size:16px;margin:24px 0 10px">别去</h3>
+  <ul class="clean no">
+    <li><b>连岛 / 大沙湾</b> —— 海景，青岛不缺口</li>
+    <li><b>连云港老街</b> —— 改造商业街，和劈柴院一个路数</li>
+    <li><b>花果山门口商业街</b> —— 吃饭宰客区</li>
+  </ul>
+</section>
+
+<!-- ============ 贴士 ============ -->
+<section id="tips">
+  <div class="sec-head"><span class="no">06</span><h2>带孩子看猴 · 安全贴士</h2></div>
+  <div class="card">
+    <ul class="clean no" style="margin-top:-6px">
+      <li><b>手上别拿塑料袋、奶茶、零食。</b>猴子对塑料袋条件反射，会直接抢。</li>
+      <li><b>不要当面打开背包掏东西。</b>可能整包被拽走。</li>
+      <li><b>不直视猴眼、不挑逗、不摸，</b>尤其别逗带小猴的母猴。</li>
+      <li><b>不投喂。</b>真要喂，摊开手心，别攥着。</li>
+      <li><b>孩子全程牵手。</b>被抢包、被抓伤是这里最常见的意外。</li>
+      <li><b>穿防滑运动鞋。</b>台阶多，水帘洞附近湿滑。</li>
+      <li><b>带件外套。</b>山上比市区低好几度，风大。</li>
+    </ul>
+  </div>
+
+  <h3 style="font-size:16px;margin:24px 0 10px">容易踩的坑</h3>
+  <div class="card">
+    <ul class="clean">
+      <li><span class="kv">水帘洞要预约，且只能入园后约。</span>一进门就扫码，别等上山再约。</li>
+      <li><span class="kv">开园时间可能是 8:30。</span>2026 年 9 月起试运营改了时间，去前确认。</li>
+      <li><span class="kv">索道 2026 年 8 月才重开。</span>偶有检修，当天在游客中心问一句。</li>
+      <li><span class="kv">门票当天有效。</span>出园再进要重新买，别想着下午再刷一次。</li>
+      <li><span class="kv">博物馆周一闭馆。</span>我们 D1 是周四，没问题。</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <b>关键电话：</b>花果山咨询 0518-8572 3837 · 酒店 0518-8575 2222
+  </div>
+</section>
+
+<!-- ============ 清单 ============ -->
+<section id="list">
+  <div class="sec-head"><span class="no">07</span><h2>出发前清单</h2></div>
+  <div class="check" id="checklist">
+    <label><input type="checkbox"><span>线上买好花果山门票（官方小程序，约 85 元）</span></label>
+    <label><input type="checkbox"><span>确认 11.6 花果山开园时间与索道运营</span></label>
+    <label><input type="checkbox"><span>带好孩子证件 / 量一下身高，确认免票</span></label>
+    <label><input type="checkbox"><span>看 11.6 天气与山上温度，备外套</span></label>
+    <label><input type="checkbox"><span>充电宝、雨伞、防滑鞋</span></label>
+    <label><input type="checkbox"><span>零食装背包，不要用塑料袋手提</span></label>
+    <label><input type="checkbox"><span>确认返程车次，提前 40 分钟到站</span></label>
+  </div>
+  <p class="progress" id="progress"></p>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    为 2026.11.5–11.7 的连云港亲子行整理 · 信息以景区当日公示为准
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY='lyg-checklist-v1';
+  var boxes=[].slice.call(document.querySelectorAll('#checklist input'));
+  var prog=document.getElementById('progress');
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  function render(){
+    var n=boxes.filter(function(b){return b.checked}).length;
+    prog.textContent=n+' / '+boxes.length+' 已完成';
+    var map={};
+    boxes.forEach(function(b,i){map[i]=b.checked});
+    try{localStorage.setItem(KEY,JSON.stringify(map))}catch(e){}
+  }
+  boxes.forEach(function(b,i){
+    if(saved[i]) b.checked=true;
+    b.addEventListener('change',render);
+  });
+  render();
+})();
+</script>
+</body>
+</html>
